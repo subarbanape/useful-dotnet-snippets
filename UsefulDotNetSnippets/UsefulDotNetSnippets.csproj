@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Containers.cs" />
     <Compile Include="Lambda.cs" />
     <Compile Include="Linq.cs" />
     <Compile Include="Program.cs" />
