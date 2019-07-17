@@ -43,11 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Objects.cs" />
     <Compile Include="Containers.cs" />
     <Compile Include="Lambda.cs" />
     <Compile Include="Linq.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringOperations.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

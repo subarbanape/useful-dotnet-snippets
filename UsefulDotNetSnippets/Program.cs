@@ -24,7 +24,19 @@ namespace Dvinun.UsefulDotNetSnippets
             //    Console.WriteLine();
             //}
 
+            //int[,] twodarrays = new int[3, 3] { { 1, 2, 3, }, { 4, 5, 6, }, { 7, 8, 9 } };
+
+            //foreach (var item in twodarrays)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Linq.EnumerableMethods();
+
             #endregion
+
+            StringOperations.IterateOverCommaDelimitedString();            
+
         }
     }
 }
