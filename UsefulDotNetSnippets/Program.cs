@@ -8,7 +8,7 @@ namespace Dvinun.UsefulDotNetSnippets
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             #region Commented Code. Uncomment to run them.
 
@@ -35,7 +35,7 @@ namespace Dvinun.UsefulDotNetSnippets
 
             #endregion
 
-            StringOperations.IterateOverCommaDelimitedString();            
+            //StringOperations.IterateOverCommaDelimitedString();            
 
         }
     }
