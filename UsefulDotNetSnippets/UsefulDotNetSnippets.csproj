@@ -44,11 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constructors.cs" />
+    <Compile Include="Linq\Linq_BooksAndFoods.cs" />
+    <Compile Include="Linq\Linq_PlayersAndLeague.cs" />
+    <Compile Include="Linq\Linq_Cards.cs" />
+    <Compile Include="Linq\Linq_ItemsAndPages.cs" />
     <Compile Include="ObjectOrientedDesignExample.cs" />
     <Compile Include="Objects.cs" />
     <Compile Include="Containers.cs" />
-    <Compile Include="Lambda.cs" />
-    <Compile Include="Linq.cs" />
+    <Compile Include="Linq\Linq_DevsAndSkills.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringOperations.cs" />

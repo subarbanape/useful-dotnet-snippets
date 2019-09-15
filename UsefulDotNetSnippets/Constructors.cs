@@ -32,7 +32,7 @@ namespace Dvinun.UsefulDotNetSnippets
 
     class Constructors
     {
-        public static void Main()
+        public static void Main1()
         {
             // Cannot instantiate abstract classes
             // var someObj = new BaseClass();

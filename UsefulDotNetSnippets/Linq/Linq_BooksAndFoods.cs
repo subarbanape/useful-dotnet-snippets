@@ -254,16 +254,31 @@ namespace Dvinun.UsefulDotNetSnippets
 
             List<RegionAndFoods> regionsAndFoods = getFoods();
 
+            Console.WriteLine("simply get the list of all foods - LINQ Way - 1");
+            var anonymousAllFoods = regionsAndFoods.SelectMany(regionAndFoods => regionAndFoods.Foods, (regionAndFoods, food) => new { food });
+            anonymousAllFoods.ToList().ForEach(item => { Console.WriteLine(item.food.Name); });
+
+            Console.WriteLine("simply get the list of all foods - Lambda Way - 2");
+            var listOfAllFoodsLambda = regionsAndFoods.SelectMany(item => item.Foods);
+            listOfAllFoodsLambda.ToList().ForEach(item => { Console.WriteLine(item.Name); });
+
+            Console.WriteLine();
+            Console.WriteLine("simply get the list of all foods - LINQ Way");
+            var listOfAllFoodsLinq = (from item in regionsAndFoods
+                                      from food in item.Foods
+                                      select food.Name);
+            listOfAllFoodsLinq.ToList().ForEach(item => { Console.WriteLine(item); });
+
             // select many 
             // get all foods and the region
             var regionAndFoodCollection =
-                   regionsAndFoods
-                   .SelectMany(regionAndFoods => regionAndFoods.Foods, (regionAndFoods, food) => new { regionAndFoods.RegionName, food })
-                   .Select(regionAndFoodItem =>
+                   regionsAndFoods                                                                                 // food name                
+                   .SelectMany(regionAndFoods => regionAndFoods.Foods, (parent, child) => new { parent.RegionName, child.Name })
+                   .Select(item =>
                            new
                            {
-                               RegionName = regionAndFoodItem.RegionName,
-                               FoodName = regionAndFoodItem.food.Name
+                               RegionName = item.RegionName,
+                               FoodName = item.Name
                            }
                    );
 
@@ -272,14 +287,13 @@ namespace Dvinun.UsefulDotNetSnippets
 
             // print enumerable - approach 2
             var printable = (from item in regionAndFoodCollection
-                             select "Region: " + item.RegionName + "Food: " + item.FoodName);
+                             select "Region: " + item.RegionName + " Food: " + item.FoodName);
             Console.WriteLine(String.Join(Environment.NewLine, printable));
+            // or
+            printable.ToList().ForEach(item => { Console.WriteLine(item); });
 
             // print enumerable - approach 3
             foreach (var item in regionAndFoodCollection) Console.WriteLine("Region: {0}, Food: {1}", item.RegionName, item.FoodName);
-
-            // just select all the foods
-            var anonymousAllFoods = regionsAndFoods.SelectMany(regionAndFoods => regionAndFoods.Foods, (regionAndFoods, food) => new { food });
 
             // contains - check if there is a food called paddu
             // SORRY. You cant use contains on Anonymous types or its way too hard to achieve. Use query instead.
@@ -310,35 +324,31 @@ namespace Dvinun.UsefulDotNetSnippets
             var isThereAFoodPaniPuri = allFoods.Contains(new Food() { Name = "pani puri" }, new FoodComparer());
 
             // get top 3 healthy foods which are rich in calcium.
-            var top3HealthyFoods =
+            var top3CalciumRichFoods =
                    regionsAndFoods
                    .SelectMany(regionAndFoods => regionAndFoods.Foods, (regionAndFoods, food) => new { regionAndFoods.RegionName, food })
-                   .Select(regionAndFoodItem =>
-                           new
-                           {
-                               RegionName = regionAndFoodItem.RegionName,
-                               Food = regionAndFoodItem.food
-                           }
-                   )
-                   .OrderByDescending(item => item.Food.Nutrition.Calcium)
+                   // YOU CAN ALSO DO THIS BY STRUCTURING THE DATA INTO A NEW ANONYMOUS OBJECT AND THEN PARSE... BUT NOT NECESSARY 
+                   // WHEN YOU CAN ACHIEVE THE SAME EASILY.
+                   //.Select(regionAndFoodItem =>
+                   //        new
+                   //        {
+                   //            RegionName = regionAndFoodItem.RegionName,
+                   //            Food = regionAndFoodItem.food
+                   //        }
+                   //)
+                   //.OrderByDescending(item => item.Food.Nutrition.Calcium)
+                   .OrderByDescending(item => item.food.Nutrition.Calcium)
                    .Take(3)
-                   .Select(healthyFood => new { RegionName = healthyFood.RegionName, FoodName = healthyFood.Food.Name, Calcium = healthyFood.Food.Nutrition.Calcium });
-            Console.WriteLine(String.Join(Environment.NewLine, top3HealthyFoods));
+                   .Select(healthyFood => new { RegionName = healthyFood.RegionName, FoodName = healthyFood.food.Name, Calcium = healthyFood.food.Nutrition.Calcium });
+            Console.WriteLine(String.Join(Environment.NewLine, top3CalciumRichFoods));
 
             // get top 3 spicy foods
             var top3SpicyFoods =
                    regionsAndFoods
                    .SelectMany(regionAndFoods => regionAndFoods.Foods, (regionAndFoods, food) => new { regionAndFoods.RegionName, food })
-                   .Select(regionAndFoodItem =>
-                           new
-                           {
-                               RegionName = regionAndFoodItem.RegionName,
-                               Food = regionAndFoodItem.food
-                           }
-                   )
-                   .OrderByDescending(item => item.Food.SpiceLevel)
+                   .OrderByDescending(item => item.food.SpiceLevel)
                    .Take(3)
-                   .Select(healthyFood => new { RegionName = healthyFood.RegionName, FoodName = healthyFood.Food.Name, SpiceLevel = healthyFood.Food.SpiceLevel });
+                   .Select(healthyFood => new { RegionName = healthyFood.RegionName, FoodName = healthyFood.food.Name, SpiceLevel = healthyFood.food.SpiceLevel });
             Console.WriteLine(String.Join(Environment.NewLine, top3SpicyFoods));
 
             // default or empty
