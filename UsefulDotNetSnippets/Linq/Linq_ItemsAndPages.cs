@@ -22,10 +22,10 @@ namespace Dvinun.UsefulDotNetSnippets
                 new List<string>() {"p4","7","8" },
             };
 
-            int itemsPerPage = 3;
-            int pageNumberToReturn = 0;
+            int itemsPerPage = 4;
+            int pageNumberToReturn = 1;
             int sortByColumn = 0;
-            int sortByOrder = 1;
+            int sortByOrder = 0;
 
             // sort by the column - sortByColumn & sortByOrder
             var sortedList = sortByOrder == 1 ?
@@ -50,14 +50,12 @@ namespace Dvinun.UsefulDotNetSnippets
             // priting the list inside a list
             pageResult.ToList().ForEach(item => { Console.WriteLine(String.Join(" ", item.ToArray())); });
 
-            // Above solution - just using pure LINQ - TBD
-            //var resultPureLinq = (sortByOrder == 1 ?
-            //    list.OrderByDescending(items => items[sortByColumn]) :
-            //    list.OrderBy(items => items[sortByColumn]))
-            //    .Select((item, index) => new { RecordIndex = index, Record = item })
-            //    .ToList()
-            //    .GetRange(,2);
-
+            // Above solution - just using pure LINQ 
+            var resultPureLinq = (sortByOrder == 1 ?
+                list.OrderByDescending(items => items[sortByColumn]) :
+                list.OrderBy(items => items[sortByColumn]))
+                .ToList()
+                .GetRange(pageNumberToReturn * itemsPerPage, (list.Count - (pageNumberToReturn * itemsPerPage)) > itemsPerPage ? itemsPerPage : (list.Count - (pageNumberToReturn * itemsPerPage)));
         }
     }
 }

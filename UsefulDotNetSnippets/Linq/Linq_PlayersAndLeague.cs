@@ -11,6 +11,11 @@ namespace Dvinun.UsefulDotNetSnippets
     {
         public static RandomGenerator randomGenerator = new RandomGenerator();
 
+        // LINQ - QUERY SYNTAX
+        //from<range variable> in <IEnumerable<T> or IQueryable<T> Collection>
+        //<Standard Query Operators> <lambda expression>
+        //<select or groupBy operator > <result formation>
+
         class League
         {
             public string Name;
@@ -125,6 +130,7 @@ namespace Dvinun.UsefulDotNetSnippets
                                                             (league, team) => new { LeagueName = league.Name, Team = team })
                                                      .SelectMany(leagueNameAndTeam => leagueNameAndTeam.Team.Players, 
                                                             (team, player) => new { PlayerName = player.Name, TeamName = team.Team.Name, LeagueName = team.LeagueName });
+
         }
     }
 }
