@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThreadsDemo;
 
 namespace Dvinun.UsefulDotNetSnippets
 {
     class Program
     {
-        static void Main(string[] args)
+        static  void Main(string[] args)
         {
             #region Commented Code. Uncomment to run them.
 
@@ -40,8 +41,20 @@ namespace Dvinun.UsefulDotNetSnippets
             //StringOperations.IterateOverCommaDelimitedString();   
 
             //Linq_PlayersAndLeague.SomeFunction();
+            //Linq_UsersAndRoles.SomeFunction();
 
-            Linq_ItemsAndPages.somefunction();
+            //Linq_ItemsAndPages.somefunction();
+
+            // TaskAsyncAwait.SomeFunctionAsync();
+
+            //Console.WriteLine("********************");
+            //Console.WriteLine("I have asked my robot to prepare the breakfast for me. It will be ready in few mins :-) ");
+            //Console.WriteLine("********************");
+            //Console.Read();
+
+            //Linq_DevsAndSkills.somefunction();
+
+            Dvinun.UsefulDotNetSnippets.Object_Oriented_Design.SOLID_Principles.InterfaceSegregationPrinciple.DemoRun();
         }
     }
 }
