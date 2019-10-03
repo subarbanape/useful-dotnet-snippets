@@ -49,6 +49,7 @@
     <Compile Include="Linq\Linq_PlayersAndLeague.cs" />
     <Compile Include="Linq\Linq_Cards.cs" />
     <Compile Include="Linq\Linq_ItemsAndPages.cs" />
+    <Compile Include="Object Oriented Design\CarAndBike.cs" />
     <Compile Include="Object Oriented Design\ObjectOrientedDesignExample.cs" />
     <Compile Include="Object Oriented Design\RepositoryDesign.cs" />
     <Compile Include="Object Oriented Design\PropertyManagerDesignExample.cs" />

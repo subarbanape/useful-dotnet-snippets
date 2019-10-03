@@ -54,7 +54,8 @@ namespace Dvinun.UsefulDotNetSnippets
 
             //Linq_DevsAndSkills.somefunction();
 
-            Dvinun.UsefulDotNetSnippets.Object_Oriented_Design.SOLID_Principles.InterfaceSegregationPrinciple.DemoRun();
+            //Dvinun.UsefulDotNetSnippets.Object_Oriented_Design.SOLID_Principles.InterfaceSegregationPrinciple.DemoRun();
+            Dvinun.UsefulDotNetSnippets.Object_Oriented_Design.BikeAndCar.Demo.Run();
         }
     }
 }
