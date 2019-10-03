@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{39082864-6F7B-4800-A820-369E7959524A}</ProjectGuid>
+    <ProjectGuid>{A9F1EAF2-AFA6-4E16-AEBE-E07A377B655E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>LinqLambdaDemo</RootNamespace>
-    <AssemblyName>LinqLambdaDemo</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AssemblyB</RootNamespace>
+    <AssemblyName>AssemblyB</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,13 +23,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,35 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constructors.cs" />
-    <Compile Include="Linq\Linq_BooksAndFoods.cs" />
-    <Compile Include="Linq\Linq_UsersAndRoles.cs" />
-    <Compile Include="Linq\Linq_PlayersAndLeague.cs" />
-    <Compile Include="Linq\Linq_Cards.cs" />
-    <Compile Include="Linq\Linq_ItemsAndPages.cs" />
-    <Compile Include="Object Oriented Design\CarAndBike.cs" />
-    <Compile Include="Object Oriented Design\ObjectOrientedDesignExample.cs" />
-    <Compile Include="Object Oriented Design\RepositoryDesign.cs" />
-    <Compile Include="Object Oriented Design\PropertyManagerDesignExample.cs" />
-    <Compile Include="Object Oriented Design\SOLID Principles\DependencyInversionPrinciple.cs" />
-    <Compile Include="Object Oriented Design\SOLID Principles\LiskovSubstitutionPrinciple.cs" />
-    <Compile Include="Object Oriented Design\SOLID Principles\OpenClosedPrinciple.cs" />
-    <Compile Include="Object Oriented Design\SOLID Principles\InterfaceSegregationPrinciple.cs" />
-    <Compile Include="Object Oriented Design\SOLID Principles\SingleResponsibilityPrinciple.cs" />
-    <Compile Include="Objects.cs" />
-    <Compile Include="Containers.cs" />
-    <Compile Include="Linq\Linq_DevsAndSkills.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ClassZ.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringOperations.cs" />
-    <Compile Include="TaskAsyncAwait.cs" />
-    <Compile Include="Workng With Assemblies\RestrictingAssemblies.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RestrictingClassesInAssemblies\AssemblyA\AssemblyA.csproj">
+    <ProjectReference Include="..\AssemblyA\AssemblyA.csproj">
       <Project>{8db0d3e4-df5c-4039-8979-bd1b0e18ef00}</Project>
       <Name>AssemblyA</Name>
     </ProjectReference>
