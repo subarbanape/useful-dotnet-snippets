@@ -9,7 +9,7 @@ namespace Dvinun.UsefulDotNetSnippets.WorkingWithAssemblies.RestrictingAssemblie
         // Declare 2 Classes(X and Y) in Assembly A both classes should be accessible in Assembly B.
         // But restrict the instantiation of class Y in Assembly B.
         // But methods from the Class Y should be accessible in Assembly B via Class X.
-        public static void Main()
+        public static void Main2()
         {
             ClassX classXObj = new ClassX();
             classXObj.MethodOfClassX();

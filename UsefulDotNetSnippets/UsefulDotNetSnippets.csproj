@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Async Programming\ExecuteMultipleAsyncTasksInParallel.cs" />
+    <Compile Include="Async Programming\Models\Bacon.cs" />
+    <Compile Include="Async Programming\Models\Juice.cs" />
+    <Compile Include="Async Programming\Models\Toast.cs" />
+    <Compile Include="Async Programming\Models\Coffee.cs" />
+    <Compile Include="Async Programming\Models\Egg.cs" />
     <Compile Include="Constructors.cs" />
     <Compile Include="Linq\Linq_BooksAndFoods.cs" />
     <Compile Include="Linq\Linq_UsersAndRoles.cs" />
@@ -64,7 +70,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringOperations.cs" />
-    <Compile Include="TaskAsyncAwait.cs" />
+    <Compile Include="Async Programming\TaskAsyncAwait.cs" />
     <Compile Include="Workng With Assemblies\RestrictingAssemblies.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,7 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestrictingClassesInAssemblies\AssemblyA\AssemblyA.csproj">
-      <Project>{8db0d3e4-df5c-4039-8979-bd1b0e18ef00}</Project>
+      <Project>{8DB0D3E4-DF5C-4039-8979-BD1B0E18EF00}</Project>
       <Name>AssemblyA</Name>
     </ProjectReference>
   </ItemGroup>

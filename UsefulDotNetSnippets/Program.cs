@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LinqLambdaDemo.Async_Programming;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace Dvinun.UsefulDotNetSnippets
 {
     class Program
     {
-        static  void Main(string[] args)
+        private static void Main(string[] args)
         {
             #region Commented Code. Uncomment to run them.
 
@@ -55,7 +56,99 @@ namespace Dvinun.UsefulDotNetSnippets
             //Linq_DevsAndSkills.somefunction();
 
             //Dvinun.UsefulDotNetSnippets.Object_Oriented_Design.SOLID_Principles.InterfaceSegregationPrinciple.DemoRun();
-            Dvinun.UsefulDotNetSnippets.Object_Oriented_Design.BikeAndCar.Demo.Run();
+            //Dvinun.UsefulDotNetSnippets.Object_Oriented_Design.BikeAndCar.Demo.Run();
+
+            //RunSynchronousExample();
+            //RunAsynchronousExample();
+            //RunTaskConcurrentlyExample();
+            //RunTaskConcurrentlyImprovedExample();
+            //CompositionWithTasksExample();
+            AwaitTasksEfficientlyExample_WhenAll();
+            Console.ReadLine();
+        }
+
+        static void RunSynchronousExample()
+        {
+            // in this case, the main thread is blocked
+            // hence, it will not respond what you type for readline
+            // also console.writeline you see below is not printed
+            // overall, we are blocked until the function PrepareBreakfast executed and came out
+            // so, the operations are synchronous
+            new SynchronousExample().PrepareBreakfast();
+            Console.WriteLine("********************");
+            Console.WriteLine("I have asked my robot to prepare the breakfast for me. It will be ready in few secs :-) ");
+            Console.WriteLine("********************");
+            Console.ReadLine();
+        }
+
+        static void RunAsynchronousExample()
+        {
+            // in this case, method PrepareBreakfastAsync is executed
+            // in the same thread but in a different synchronizationcontext
+            // so, the method 'PrepareBreakfastAsync' will not block this method 'RunAsynchronousExample'
+            // instead it will come out and it executes the below three writelines and then also be 
+            // responsive to any key strokes
+            Task taskBf = new AsynchronousExample().PrepareBreakfastAsync();
+            Console.WriteLine("********************");
+            Console.WriteLine("I have asked my robot to prepare the breakfast for me. It will be ready in few secs :-) ");
+            Console.WriteLine("********************");
+
+            Console.ReadLine();
+        }
+
+        static void RunTaskConcurrentlyExample()
+        {
+            // For comments, see inside these methods for more explanation
+            Task taskBf = new RunTaskConcurrentlyExample().PrepareBreakfastAsync();
+            Console.WriteLine("********************");
+            Console.WriteLine("I have asked my robot to prepare the breakfast for me. It will be ready in few secs :-) ");
+            Console.WriteLine("********************");
+
+            Console.ReadLine();
+        }
+
+        static void RunTaskConcurrentlyImprovedExample()
+        {
+            // For comments, see inside these methods for more explanation
+            Task taskBf = new RunTaskConcurrentlyExample().PrepareBreakfastAsyncImproved();
+            Console.WriteLine("********************");
+            Console.WriteLine("I have asked my robot to prepare the breakfast for me. It will be ready in few secs :-) ");
+            Console.WriteLine("********************");
+
+            Console.ReadLine();
+        }
+
+        static void CompositionWithTasksExample()
+        {
+            // For comments, see inside these methods for more explanation
+            Task taskBf = new CompositionWithTasksExample().PrepareBreakfastAsync();
+            Console.WriteLine("********************");
+            Console.WriteLine("I have asked my robot to prepare the breakfast for me. It will be ready in few secs :-) ");
+            Console.WriteLine("********************");
+
+            Console.ReadLine();
+        }
+
+        static void AwaitTasksEfficientlyExample_WhenAll()
+        {
+            // For comments, see inside these methods for more explanation
+            Task taskBf = new AwaitTasksEfficientlyExample().PrepareBreakfastAsync_WhenAll();
+            Console.WriteLine("********************");
+            Console.WriteLine("I have asked my robot to prepare the breakfast for me. It will be ready in few secs :-) ");
+            Console.WriteLine("********************");
+
+            Console.ReadLine();
+        }
+
+        static void AwaitTasksEfficientlyExample_WhenAny()
+        {
+            // For comments, see inside these methods for more explanation
+            Task taskBf = new AwaitTasksEfficientlyExample().PrepareBreakfastAsync_WhenAny();
+            Console.WriteLine("********************");
+            Console.WriteLine("I have asked my robot to prepare the breakfast for me. It will be ready in few secs :-) ");
+            Console.WriteLine("********************");
+
+            Console.ReadLine();
         }
     }
 }
