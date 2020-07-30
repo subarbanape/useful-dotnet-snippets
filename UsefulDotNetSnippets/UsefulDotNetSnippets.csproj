@@ -51,6 +51,8 @@
     <Compile Include="Async Programming\Models\Egg.cs" />
     <Compile Include="Constructors.cs" />
     <Compile Include="Linq\Linq_BooksAndFoods.cs" />
+    <Compile Include="Linq\Linq_NestedGroupBy.cs" />
+    <Compile Include="Linq\Linq_PetOwners.cs" />
     <Compile Include="Linq\Linq_UsersAndRoles.cs" />
     <Compile Include="Linq\Linq_PlayersAndLeague.cs" />
     <Compile Include="Linq\Linq_Cards.cs" />

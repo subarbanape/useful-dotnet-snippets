@@ -1,4 +1,5 @@
 ﻿using LinqLambdaDemo.Async_Programming;
+using LinqLambdaDemo.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,7 +64,9 @@ namespace Dvinun.UsefulDotNetSnippets
             //RunTaskConcurrentlyExample();
             //RunTaskConcurrentlyImprovedExample();
             //CompositionWithTasksExample();
-            AwaitTasksEfficientlyExample_WhenAll();
+            //AwaitTasksEfficientlyExample_WhenAll();
+
+            Linq_NestedGroupBy.Demo();
             Console.ReadLine();
         }
 
